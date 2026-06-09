@@ -10,23 +10,16 @@ app = Flask(__name__)
 # Load CSV
 data = pd.read_csv("career_data.csv")
 
-# Inputs and output
 X = data[["Math", "Coding", "Art", "Social", "Science"]]
 y = data["Career"]
-
-# Split dataset
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
     test_size=0.2,
     random_state=42
 )
-
-# Train AI model
 model = DecisionTreeClassifier()
 model.fit(X_train, y_train)
-
-# Test accuracy
 predictions = model.predict(X_test)
 accuracy = accuracy_score(y_test, predictions)
 

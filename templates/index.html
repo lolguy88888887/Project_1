@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Predictor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>AI Career Predictor</h1>
+
+    <p>Answer the questions below</p>
+
+    <form action="/predict" method="POST">
+
+        <label>Math Skill (1-10)</label>
+        <input type="number" name="math" min="1" max="10" required>
+
+        <label>Coding Skill (1-10)</label>
+        <input type="number" name="coding" min="1" max="10" required>
+
+        <label>Art Skill (1-10)</label>
+        <input type="number" name="art" min="1" max="10" required>
+
+        <label>Social Skill (1-10)</label>
+        <input type="number" name="social" min="1" max="10" required>
+
+        <label>Science Skill (1-10)</label>
+        <input type="number" name="science" min="1" max="10" required>
+
+        <button type="submit">Predict Career</button>
+
+    </form>
+
+    {% if prediction %}
+        <h2>Predicted Career: {{ prediction }}</h2>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
